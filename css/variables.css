@@ -1,0 +1,82 @@
+/* ==========================================================================
+   LUBRICANTES OILUB — VARIABLES GLOBALES
+   --------------------------------------------------------------------------
+   Este es el ÚNICO archivo que hay que tocar para cambiar colores,
+   tipografías y espaciados de todo el sitio.
+
+   IMPORTANTE: la paleta y la tipografía de abajo son PROVISIONALES.
+   Cuando el cliente entregue su manual de marca ([[PALETA_CORPORATIVA]] y
+   [[TIPOGRAFIA_CORPORATIVA]]), se reemplazan aquí y el sitio se actualiza solo.
+   ========================================================================== */
+
+/* Tipografía corporativa: descomentar cuando llegue el archivo WOFF2
+@font-face {
+  font-family: "OilubCorporativa";
+  src: url("../assets/fonts/[[TIPOGRAFIA_CORPORATIVA]].woff2") format("woff2");
+  font-weight: 700 800;
+  font-display: swap;
+}
+*/
+
+:root {
+  /* ---------- Fondos ---------- */
+  --bg-base:        #0A0A0B;  /* negro carbón, fondo general */
+  --bg-elevated:    #121316;  /* secciones alternas */
+  --bg-card:        #17181C;  /* tarjetas, productos */
+  --bg-card-hover:  #1E2026;
+
+  /* ---------- Líneas y bordes ---------- */
+  --border-subtle:  #26282E;
+  --border-strong:  #3A3D46;
+
+  /* ---------- Texto ---------- */
+  --text-primary:   #F4F4F5;
+  --text-secondary: #A1A4AD;  /* contraste 7.9:1 sobre --bg-base (AA ok) */
+  --text-muted:     #80848E;  /* textos secundarios pequeños (contraste 5.3:1) */
+
+  /* ---------- Acento de marca (tono aceite / ámbar) ---------- */
+  --accent:         #F2A900;
+  --accent-hover:   #FFC233;
+  --accent-soft:    rgba(242, 169, 0, 0.12);
+  --accent-glow:    rgba(242, 169, 0, 0.28);
+  --text-on-accent: #0A0A0B;
+
+  /* ---------- Funcionales ---------- */
+  --whatsapp:       #25D366;  /* SOLO para botones de WhatsApp */
+  --whatsapp-hover: #3BE07A;
+  --danger:         #E5484D;
+  --success:        #30A46C;
+
+  /* ---------- Tipografía ---------- */
+  /* Cuando llegue la corporativa: --font-titulos: "OilubCorporativa", "Manrope", sans-serif; */
+  --font-titulos: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-cuerpo:  "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-h1:       clamp(2.5rem, 6vw, 5rem);
+  --fs-h2:       clamp(1.75rem, 3.5vw, 3rem);
+  --fs-h3:       1.25rem;
+  --fs-body:     1rem;
+  --fs-lead:     clamp(1.05rem, 1.4vw, 1.25rem);
+  --fs-label:    0.75rem;
+  --lh-body:     1.6;
+  --lh-titulo:   1.05;
+  --tracking-titulo: -0.02em;
+  --tracking-label:  0.12em;
+
+  /* ---------- Espaciado y layout ---------- */
+  --max-width:       1200px;
+  --gutter:          clamp(1.25rem, 4vw, 2rem);
+  --section-space:   clamp(4rem, 10vw, 8rem);
+  --header-height:   72px;
+
+  /* ---------- Formas ---------- */
+  --radius-card:  14px;
+  --radius-pill:  999px;
+  --border-w:     1px;
+
+  /* ---------- Movimiento ---------- */
+  --dur-fast:  200ms;
+  --dur-base:  300ms;
+  --ease-out:  cubic-bezier(0.22, 1, 0.36, 1);
+  --reveal-y:  16px;
+}

@@ -1,0 +1,83 @@
+{
+  "_nota": "Textos editables del sitio. Cambia el texto entre comillas y guarda. Títulos: máx. 6 palabras. Descripciones: máx. 20. No borres las claves (lo que está a la izquierda de los dos puntos).",
+  "barraSuperior": {
+    "texto": "Atención rápida · Maracaibo y San Francisco"
+  },
+  "hero": {
+    "etiqueta": "Centro de lubricación · Zulia",
+    "titulo": "Tu motor merece <em>lo mejor.</em>",
+    "subtitulo": "Lubricantes de marcas originales y servicio rápido en Maracaibo y San Francisco.",
+    "botonCatalogo": "Ver catálogo",
+    "botonWhatsapp": "Escribir por WhatsApp",
+    "dato1": "Marcas originales",
+    "dato2": "Combos promocionales",
+    "dato3": "Atención rápida"
+  },
+  "marcas": {
+    "titulo": "Marcas que respaldan tu motor"
+  },
+  "categorias": {
+    "etiqueta": "Productos",
+    "titulo": "Todo para tu vehículo",
+    "aceites": "Aceites de motor",
+    "filtros": "Filtros",
+    "baterias": "Baterías",
+    "fluidos": "Fluidos y otros lubricantes"
+  },
+  "servicios": {
+    "etiqueta": "Servicio de lubricación",
+    "titulo": "Rápido, limpio y sin complicaciones",
+    "descripcion": "Cambio de aceite y filtro con productos originales, mientras esperas.",
+    "paso1": "Llegas",
+    "paso1Texto": "Sin largas esperas, en cualquiera de nuestras sedes.",
+    "paso2": "Diagnóstico rápido",
+    "paso2Texto": "Revisamos tu vehículo y te recomendamos el aceite adecuado.",
+    "paso3": "Cambio de aceite y filtro",
+    "paso3Texto": "Con marcas originales y el producto que elijas.",
+    "paso4": "Listo y en marcha",
+    "paso4Texto": "Tu motor protegido para seguir rodando."
+  },
+  "destacados": {
+    "etiqueta": "Catálogo",
+    "titulo": "Productos destacados",
+    "boton": "Ver todo el catálogo"
+  },
+  "combos": {
+    "etiqueta": "Promociones",
+    "titulo": "Combos que rinden más"
+  },
+  "flotas": {
+    "etiqueta": "Empresas",
+    "titulo": "Soluciones para flotas y transportistas",
+    "descripcion": "Mantenimiento preventivo para tu flota, con atención directa y cotización a la medida.",
+    "ventaja1": "Mantenimiento preventivo",
+    "ventaja2": "Marcas originales",
+    "ventaja3": "Precios por volumen",
+    "formTitulo": "Pide tu cotización",
+    "formBoton": "Enviar por WhatsApp"
+  },
+  "porque": {
+    "etiqueta": "Por qué Oilub",
+    "titulo": "Todo en un solo lugar",
+    "item1": "Variedad de marcas",
+    "item2": "Precios competitivos",
+    "item3": "Combos promocionales",
+    "item4": "Atención rápida con sedes estratégicas"
+  },
+  "sedes": {
+    "etiqueta": "Sedes",
+    "titulo": "Visítanos en Zulia"
+  },
+  "instagram": {
+    "titulo": "Síguenos en @lubricantesoilub",
+    "boton": "Ver perfil"
+  },
+  "cta": {
+    "titulo": "¿Listo para el cambio de aceite?",
+    "descripcion": "Escríbenos y te atendemos al momento.",
+    "boton": "Escribir por WhatsApp"
+  },
+  "footer": {
+    "descripcion": "Centro de lubricación y distribuidora de aceites, filtros, baterías y fluidos en Zulia."
+  }
+}

@@ -1,0 +1,404 @@
+/* ==========================================================================
+   PÁGINAS — estilos de cada sección de la home y del catálogo
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Franja de marcas
+   -------------------------------------------------------------------------- */
+.marcas {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  border-block: var(--border-w) solid var(--border-subtle);
+}
+.marcas__titulo {
+  text-align: center;
+  font-family: var(--font-cuerpo);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+}
+.marcas__lista {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+/* Mientras no lleguen los logos oficiales se muestra el nombre en texto.
+   Para usar el logo: <img src="assets/logos/shell.svg" alt="Shell" ...> dentro del <li>. */
+.marca {
+  display: grid; place-items: center;
+  min-height: 64px;
+  font-family: var(--font-titulos);
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2.6vw, 2rem);
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  opacity: .6;
+  transition: opacity var(--dur-base);
+}
+.marca:hover { opacity: 1; }
+.marca img { max-height: 40px; width: auto; filter: grayscale(1) brightness(2.2); }
+@media (max-width: 560px) { .marcas__lista { grid-template-columns: repeat(2, 1fr); row-gap: .5rem; } }
+
+/* --------------------------------------------------------------------------
+   Categorías
+   -------------------------------------------------------------------------- */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.75rem, 2vw, 1.25rem);
+}
+.categoria {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: var(--border-w) solid var(--border-subtle);
+  background: var(--bg-card);
+  isolation: isolate;
+}
+.categoria img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  transition: transform 600ms var(--ease-out);
+}
+.categoria::after {
+  content: "";
+  position: absolute; inset: 40% 0 0;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent, rgba(10,10,11,.92));
+}
+.categoria:hover img { transform: scale(1.04); }
+.categoria:hover { border-color: rgba(242, 169, 0, .35); }
+.categoria__info {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem;
+  padding: 1.25rem;
+}
+.categoria__nombre { font-size: clamp(1.1rem, 1.6vw, 1.35rem); max-width: 12ch; }
+.categoria__flecha {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  border: var(--border-w) solid var(--border-strong);
+  transition: background-color var(--dur-base), color var(--dur-base), border-color var(--dur-base);
+}
+.categoria:hover .categoria__flecha { background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
+@media (max-width: 900px) { .categorias-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* --------------------------------------------------------------------------
+   Servicios (pasos)
+   -------------------------------------------------------------------------- */
+.servicios__grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+.servicios__media {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: var(--border-w) solid var(--border-subtle);
+  aspect-ratio: 3 / 2;
+}
+.servicios__media img { width: 100%; height: 100%; object-fit: cover; }
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  margin-top: 2.5rem;
+  background: var(--border-subtle);
+  border: var(--border-w) solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  counter-reset: paso;
+}
+.paso {
+  padding: 1.5rem;
+  background: var(--bg-base);
+  counter-increment: paso;
+}
+.paso__cabeza { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.paso__cabeza .icono { width: 26px; height: 26px; color: var(--accent); }
+.paso__cabeza::after {
+  content: "0" counter(paso);
+  font-size: .8125rem; font-weight: 600;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.paso h3 { margin-bottom: .4rem; }
+.paso p { font-size: .9rem; color: var(--text-secondary); }
+@media (max-width: 900px) {
+  .servicios__grid { grid-template-columns: 1fr; }
+  .servicios__media { order: 2; }
+}
+@media (max-width: 520px) { .pasos { grid-template-columns: 1fr; } }
+
+/* --------------------------------------------------------------------------
+   Combos
+   -------------------------------------------------------------------------- */
+.combos-lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.combo {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: var(--border-w) solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  transition: border-color var(--dur-base);
+}
+.combo:hover { border-color: rgba(242, 169, 0, .35); }
+.combo__media { position: relative; min-height: 220px; background: #101114; }
+.combo__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.combo__etiqueta {
+  position: absolute; top: .9rem; left: .9rem;
+  padding: .3rem .75rem;
+  font-size: .6875rem; font-weight: 800; letter-spacing: .14em;
+  color: var(--text-on-accent);
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+}
+.combo__cuerpo { display: flex; flex-direction: column; gap: 1rem; padding: 1.5rem; }
+.combo__cuerpo h3 { font-size: 1.35rem; }
+.combo__incluye { display: grid; gap: .45rem; font-size: .9rem; color: var(--text-secondary); }
+.combo__incluye li { display: flex; gap: .55rem; align-items: center; }
+.combo__incluye .icono { width: 1rem; height: 1rem; color: var(--accent); }
+.combo__precios { margin-top: auto; display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap; }
+.combo__precio { font-size: 1.5rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.combo__precio--consultar { font-size: 1rem; font-weight: 600; }
+.combo__antes { font-size: .9rem; color: var(--text-muted); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+.combo__acciones { display: flex; flex-wrap: wrap; gap: .5rem; }
+.combo__acciones .btn { min-height: 44px; padding: .7rem 1.1rem; font-size: .875rem; }
+@media (max-width: 1024px) { .combos-lista { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .combo { grid-template-columns: 1fr; }
+  .combo__media { aspect-ratio: 16 / 10; min-height: 0; }
+  .combo__acciones .btn { flex: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Flotas y empresas
+   -------------------------------------------------------------------------- */
+.flotas { overflow: hidden; }
+.flotas__banner {
+  position: relative;
+  aspect-ratio: 21 / 9;
+  max-height: 420px;
+  width: 100%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: var(--border-w) solid var(--border-subtle);
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.flotas__banner img { width: 100%; height: 100%; object-fit: cover; }
+.flotas__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
+.ventajas { display: grid; gap: 1px; margin-top: 2rem; background: var(--border-subtle); border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border-subtle); }
+.ventaja { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.25rem; background: var(--bg-elevated); font-weight: 600; }
+.ventaja .dato__icono { width: 40px; height: 40px; }
+.form-flotas {
+  position: relative;
+  display: grid; gap: 1rem;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background: var(--bg-card);
+  border: var(--border-w) solid var(--border-subtle);
+  border-radius: var(--radius-card);
+}
+.form-flotas h3 { font-size: 1.35rem; margin-bottom: .25rem; }
+.form-flotas__fila { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-flotas .btn { width: 100%; margin-top: .5rem; }
+@media (max-width: 900px) { .flotas__grid { grid-template-columns: 1fr; } .flotas__banner { aspect-ratio: 16 / 9; } }
+@media (max-width: 480px) { .form-flotas__fila { grid-template-columns: 1fr; } }
+
+/* --------------------------------------------------------------------------
+   Por qué elegirnos
+   -------------------------------------------------------------------------- */
+.porque-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(.75rem, 2vw, 1.25rem); }
+.porque {
+  display: grid; gap: 1.5rem; align-content: space-between;
+  min-height: 180px;
+  padding: 1.5rem;
+  background: var(--bg-card);
+  border: var(--border-w) solid var(--border-subtle);
+  border-radius: var(--radius-card);
+}
+.porque .dato__icono { width: 48px; height: 48px; }
+.porque p { font-family: var(--font-titulos); font-weight: 700; font-size: 1.15rem; line-height: 1.25; letter-spacing: -0.01em; }
+@media (max-width: 900px) { .porque-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .porque { min-height: 150px; padding: 1.25rem; } .porque p { font-size: 1rem; } }
+
+/* --------------------------------------------------------------------------
+   Sedes
+   -------------------------------------------------------------------------- */
+.sedes-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.sede {
+  overflow: hidden;
+  background: var(--bg-card);
+  border: var(--border-w) solid var(--border-subtle);
+  border-radius: var(--radius-card);
+}
+.sede__media { position: relative; aspect-ratio: 16 / 10; background: #101114; }
+.sede__media img { width: 100%; height: 100%; object-fit: cover; }
+.sede__media .marca-dev { position: absolute; top: .9rem; left: .9rem; }
+.sede__cuerpo { padding: 1.5rem; display: grid; gap: 1.25rem; }
+.sede__cuerpo h3 { font-size: 1.5rem; }
+.sede__datos { display: grid; gap: .75rem; font-size: .925rem; color: var(--text-secondary); }
+.sede__datos li { display: flex; gap: .7rem; align-items: flex-start; }
+.sede__datos .icono { width: 1.1rem; height: 1.1rem; margin-top: .2rem; color: var(--accent); }
+.sede__acciones { display: flex; flex-wrap: wrap; gap: .6rem; }
+.sede__acciones .btn { flex: 1; min-height: 46px; padding: .7rem 1rem; font-size: .875rem; }
+@media (max-width: 760px) { .sedes-grid { grid-template-columns: 1fr; } }
+
+/* --------------------------------------------------------------------------
+   Instagram
+   -------------------------------------------------------------------------- */
+.instagram-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: .5rem; }
+.instagram-grid a { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 10px; background: var(--bg-card); }
+.instagram-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--ease-out), opacity var(--dur-base); }
+.instagram-grid a:hover img { transform: scale(1.05); opacity: .8; }
+@media (max-width: 760px) { .instagram-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* --------------------------------------------------------------------------
+   CTA final
+   -------------------------------------------------------------------------- */
+.cta-final {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  text-align: center;
+  padding-block: clamp(5rem, 12vw, 9rem);
+}
+.cta-final::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%;
+  width: min(900px, 140vw); aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background: radial-gradient(closest-side, var(--accent-glow), var(--accent-soft) 40%, transparent 72%);
+  opacity: .7;
+}
+.cta-final h2 { max-width: 16ch; margin-inline: auto; font-size: clamp(2rem, 5vw, 3.75rem); }
+.cta-final p { margin-top: 1.25rem; color: var(--text-secondary); font-size: var(--fs-lead); }
+.cta-final .btn { margin-top: 2.5rem; min-height: 60px; padding-inline: 2.25rem; font-size: 1.05rem; }
+
+/* --------------------------------------------------------------------------
+   CATÁLOGO
+   -------------------------------------------------------------------------- */
+.catalogo-cabecera {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(180deg, var(--bg-base), var(--bg-elevated));
+  border-bottom: var(--border-w) solid var(--border-subtle);
+}
+.migas { display: flex; gap: .5rem; font-size: .8125rem; color: var(--text-secondary); margin-bottom: 1.25rem; }
+.migas a:hover { color: var(--accent); }
+.catalogo-cabecera h1 { font-size: clamp(2.25rem, 5vw, 3.75rem); }
+.catalogo-cabecera p { margin-top: .9rem; color: var(--text-secondary); max-width: 46ch; }
+
+.catalogo-tabs {
+  display: flex; gap: .5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-top: 2rem;
+  padding-bottom: .25rem;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: var(--gutter);
+}
+.catalogo-tabs::-webkit-scrollbar { display: none; }
+
+.catalogo { padding-block: clamp(2rem, 5vw, 3rem) var(--section-space); }
+.catalogo__layout { display: grid; grid-template-columns: 260px 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+
+.filtros { position: sticky; top: calc(var(--header-height) + 1.5rem); display: grid; gap: 1.5rem; }
+.filtros__grupo { display: grid; gap: .6rem; }
+.filtros__grupo > span { font-size: var(--fs-label); font-weight: 600; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--text-secondary); }
+.filtros__opciones { display: flex; flex-wrap: wrap; gap: .4rem; }
+.filtros__opciones .chip-btn { min-height: 36px; padding: .4rem .85rem; font-size: .8125rem; }
+.filtros__limpiar { justify-self: start; font-size: .8125rem; color: var(--text-secondary); text-decoration: underline; }
+.filtros__limpiar:hover { color: var(--accent); }
+.filtros__cabecera-movil { display: none; }
+
+.catalogo__barra { display: flex; gap: .75rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.buscador { position: relative; flex: 1 1 260px; }
+.buscador .icono { position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none; }
+.buscador .input { padding-left: 2.75rem; border-radius: var(--radius-pill); }
+.catalogo__orden { flex: 0 0 auto; width: auto; min-width: 190px; border-radius: var(--radius-pill); }
+.btn-filtros { display: none; }
+.catalogo__conteo { font-size: .875rem; color: var(--text-secondary); margin-bottom: 1rem; }
+.catalogo__vacio {
+  display: grid; place-items: center; gap: 1rem; text-align: center;
+  padding: 4rem 1rem;
+  border: 1px dashed var(--border-strong); border-radius: var(--radius-card);
+  color: var(--text-secondary);
+}
+.catalogo .productos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+@media (max-width: 1024px) {
+  .catalogo__layout { grid-template-columns: 1fr; }
+  .btn-filtros { display: inline-flex; }
+  .filtros {
+    position: fixed; inset: auto 0 0 0; top: auto; z-index: 85;
+    max-height: 85svh; overflow-y: auto;
+    padding: 1.5rem var(--gutter) calc(1.5rem + env(safe-area-inset-bottom));
+    background: var(--bg-elevated);
+    border-top: var(--border-w) solid var(--border-strong);
+    border-radius: 20px 20px 0 0;
+    transform: translateY(100%); visibility: hidden;
+    transition: transform 350ms var(--ease-out), visibility 350ms;
+  }
+  .filtros.abierto { transform: none; visibility: visible; }
+  .filtros__cabecera-movil { display: flex; justify-content: space-between; align-items: center; }
+  .filtros__cabecera-movil h2 { font-size: 1.25rem; }
+  .filtros__aplicar { width: 100%; }
+  .catalogo .productos-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1025px) { .filtros__aplicar { display: none; } }
+@media (max-width: 760px) { .catalogo .productos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .catalogo__orden { flex: 1; min-width: 0; } }
+
+/* --------------------------------------------------------------------------
+   Páginas simples (404, legales)
+   -------------------------------------------------------------------------- */
+.pagina-simple { padding-block: clamp(3rem, 8vw, 6rem) var(--section-space); }
+.pagina-simple h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); margin-bottom: 1.5rem; }
+.texto-legal { max-width: 72ch; color: var(--text-secondary); }
+.texto-legal h2 { font-size: 1.35rem; color: var(--text-primary); margin: 2.5rem 0 .75rem; }
+.texto-legal p, .texto-legal li { margin-bottom: .75rem; }
+.texto-legal ul { list-style: disc; padding-left: 1.25rem; }
+
+.error-404 {
+  min-height: 70svh;
+  display: grid; place-items: center; text-align: center;
+  position: relative; isolation: isolate; overflow: hidden;
+}
+.error-404::before {
+  content: ""; position: absolute; left: 50%; top: 45%;
+  width: min(700px, 120vw); aspect-ratio: 1; transform: translate(-50%, -50%); z-index: -1;
+  background: radial-gradient(closest-side, var(--accent-soft), transparent 70%);
+}
+.error-404__numero {
+  font-family: var(--font-titulos); font-weight: 800;
+  font-size: clamp(6rem, 22vw, 12rem); line-height: 1; letter-spacing: -0.04em;
+  color: var(--accent);
+  background-image: linear-gradient(180deg, var(--accent-hover) 10%, #8A5200 90%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.error-404 h1 { font-size: clamp(1.75rem, 4vw, 2.5rem); margin-top: 1rem; }
+.error-404 p { margin-top: .9rem; color: var(--text-secondary); }
+.error-404__botones { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 2rem; }
+
+/* Nombre de categoría con la tipografía de títulos */
+.categoria__nombre { font-family: var(--font-titulos); font-weight: 800; line-height: 1.15; letter-spacing: -0.01em; }
+
+@media (max-width: 560px) {
+  .categoria__info { padding: .9rem; gap: .5rem; }
+  .categoria__nombre { font-size: 1rem; max-width: none; }
+  .categoria__flecha { width: 32px; height: 32px; }
+  .categoria__flecha .icono { width: 1rem; height: 1rem; }
+}

@@ -1,0 +1,32 @@
+{
+  "_nota": "Combos de MUESTRA. Editar nombre, incluye y precios. 'precio' y 'precio_separado' en null muestran «Consultar precio».",
+  "combos": [
+    {
+      "id": "combo-cambio-aceite",
+      "ejemplo": true,
+      "nombre": "Combo Cambio de aceite",
+      "incluye": [
+        "Aceite de motor (4 L)",
+        "Filtro de aceite"
+      ],
+      "precio": null,
+      "precio_separado": null,
+      "imagen": "assets/img/combo-cambio-aceite.webp",
+      "activo": true
+    },
+    {
+      "id": "combo-diesel",
+      "ejemplo": true,
+      "nombre": "Combo Diésel",
+      "incluye": [
+        "Aceite 15W-40 diésel",
+        "Filtro de aceite",
+        "Filtro de combustible"
+      ],
+      "precio": null,
+      "precio_separado": null,
+      "imagen": "assets/img/combo-diesel.webp",
+      "activo": true
+    }
+  ]
+}
