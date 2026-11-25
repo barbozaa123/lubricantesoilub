@@ -1,0 +1,3 @@
+# Netlify / Cloudflare Pages: forzar HTTPS se activa en el panel del hosting.
+# URLs limpias: /catalogo sirve catalogo.html (Netlify y Cloudflare lo hacen automáticamente).
+/catalogo/:categoria   /catalogo.html#:categoria   302
